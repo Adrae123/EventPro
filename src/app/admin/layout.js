@@ -3,7 +3,7 @@ export const metadata = {
     description: 'Interface d’administration pour gérer les services',
   };
 
-  import Sidebar from '@/components/Sidebar';
+  import Sidebar from '../../components/sidebar';
 
 
 

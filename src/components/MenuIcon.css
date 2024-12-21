@@ -1,0 +1,15 @@
+.menu-icon {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+  }
