@@ -1,5 +1,5 @@
 'use client';
-import  './MenuIcon.css';
+import './MenuIcon.css';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -8,17 +8,13 @@ const Sidebar = () => {
   const [showMessagerie, setShowMessagerie] = useState(false);
   const [showPrestataires, setShowPrestataires] = useState(false);
 
-  // Fonction pour masquer le sidebar au clic d'un élément
   const handleLinkClick = () => setIsSidebarVisible(false);
 
   return (
     <>
       {/* Bouton pour afficher/masquer le sidebar */}
-      <button
-        onClick={() => setIsSidebarVisible(!isSidebarVisible)}
-        style={menuButtonStyle}
-      >
-        Menu
+      <button onClick={() => setIsSidebarVisible(!isSidebarVisible)} style={menuButtonStyle}>
+        <span style={buttonIconStyle}>☰</span> {/* Icône du menu */}
       </button>
 
       {isSidebarVisible && (
@@ -33,10 +29,7 @@ const Sidebar = () => {
 
             {/* Gestion des Prestataires */}
             <li>
-              <h4
-                style={sectionTitleStyle}
-                onClick={() => setShowPrestataires(!showPrestataires)}
-              >
+              <h4 style={sectionTitleStyle} onClick={() => setShowPrestataires(!showPrestataires)}>
                 Gestion des Prestataires
               </h4>
               {showPrestataires && (
@@ -65,10 +58,7 @@ const Sidebar = () => {
 
             {/* Messagerie */}
             <li>
-              <h4
-                style={sectionTitleStyle}
-                onClick={() => setShowMessagerie(!showMessagerie)}
-              >
+              <h4 style={sectionTitleStyle} onClick={() => setShowMessagerie(!showMessagerie)}>
                 Messagerie
               </h4>
               {showMessagerie && (
@@ -96,11 +86,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link
-                href="/admin/notification"
-                style={linkStyle}
-                onClick={handleLinkClick}
-              >
+              <Link href="/admin/notification" style={linkStyle} onClick={handleLinkClick}>
                 Notification
               </Link>
             </li>
@@ -121,22 +107,26 @@ const Sidebar = () => {
   );
 };
 
-// Styles
+// Styles CSS
 const sidebarStyle = {
   width: '250px',
   height: '100vh',
-  backgroundColor: '#000',
+  backgroundColor: '#2C3E50',
   color: '#fff',
   padding: '20px',
   position: 'fixed',
   top: 0,
   left: 0,
+  borderRadius: '8px 0 0 8px',
+  boxShadow: '2px 0 8px rgba(0, 0, 0, 0.2)',
+  transition: 'transform 0.3s ease', // Animation d'ouverture/fermeture
 };
 
 const titleStyle = {
   fontSize: '24px',
   fontWeight: 'bold',
   marginBottom: '20px',
+  fontFamily: 'Arial, sans-serif',
 };
 
 const menuStyle = {
@@ -147,21 +137,26 @@ const menuStyle = {
 const linkStyle = {
   color: '#fff',
   textDecoration: 'none',
-  padding: '10px 0',
+  padding: '12px 0',
   display: 'block',
-  cursor: 'pointer',
+  fontSize: '16px',
+  fontFamily: 'Arial, sans-serif',
+  borderBottom: '1px solid #34495E',
+  transition: 'background-color 0.3s',
 };
 
 const sectionTitleStyle = {
-  fontSize: '16px',
+  fontSize: '18px',
   margin: '12px 0 10px',
   fontWeight: 'bold',
   cursor: 'pointer',
+  fontFamily: 'Arial, sans-serif',
+  transition: 'color 0.3s ease',
 };
 
 const subListStyle = {
   listStyle: 'none',
-  paddingLeft: '10px',
+  paddingLeft: '20px',
 };
 
 const subLinkStyle = {
@@ -169,7 +164,8 @@ const subLinkStyle = {
   textDecoration: 'none',
   padding: '8px 0',
   display: 'block',
-  paddingLeft: '20px',
+  fontSize: '14px',
+  paddingLeft: '30px',
   transition: 'color 0.3s ease',
 };
 
@@ -179,7 +175,27 @@ const menuButtonStyle = {
   left: '20px',
   padding: '10px 20px',
   fontSize: '16px',
+  backgroundColor: '#2C3E50',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '5px',
   cursor: 'pointer',
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  transition: 'background-color 0.3s ease',
+};
+
+const buttonIconStyle = {
+  fontSize: '24px',
+  marginRight: '10px',
+};
+
+// Effet de survol (hover) pour les liens
+linkStyle[':hover'] = {
+  backgroundColor: '#34495E',
+};
+
+subLinkStyle[':hover'] = {
+  color: '#1ABC9C',
 };
 
 export default Sidebar;

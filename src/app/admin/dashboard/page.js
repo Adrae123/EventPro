@@ -5,15 +5,8 @@ export default function Dashboard() {
     <div style={dashboardStyle}>
       <header style={headerStyle}>
         <h1 style={titleStyle}>Dashboard</h1>
-        <p style={welcomeTextStyle}>Bienvenue sur le tableau de bord admin !</p>
+        <p style={welcomeTextStyle}>Bienvenue sur le tableau de bord  !</p>
       </header>
-
-
-
-
-
-
-
     </div>
   );
 }

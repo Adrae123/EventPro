@@ -1,71 +1,72 @@
 /* Global styles */
 * {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-  body {
-    background-color: #f4f4f4;
-  }
+body {
+  background-color: #f7f7f7; /* Fond de page légèrement gris pour contraster */
+}
 
-  .form-container {
-    width: 50%;
-    margin: 5% auto;
-    background: #000;
-    color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
+.form-container {
+  width: 50%;
+  margin: 5% auto;
+  background: #fff; /* Fond du formulaire en blanc */
+  color: #333; /* Couleur de texte sombre pour contraste */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  text-align: center;
+}
 
-  h1 {
-    margin-bottom: 2rem;
-  }
+h1 {
+  margin-bottom: 2rem;
+}
 
-  .form-style {
-    display: flex;
-    flex-direction: column;
-  }
+.form-style {
+  display: flex;
+  flex-direction: column;
+}
 
-  .form-group {
-    margin-bottom: 1rem;
-    text-align: left;
-  }
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
 
-  label {
-    font-weight: bold;
-  }
+label {
+  font-weight: bold;
+}
 
-  input,
-  select {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-top: 0.3rem;
-    border: none;
-    border-radius: 4px;
-  }
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc; /* Bordure légère */
+  border-radius: 4px;
+}
 
-  input:focus,
-  select:focus {
-    outline: none;
-    background: #fff;
-    color: #000;
-  }
+input:focus,
+select:focus {
+  outline: none;
+  background: #fff;
+  color: #000;
+  border: 1px solid #007bff; /* Bordure bleue au focus */
+}
 
-  .submit-btn {
-    background: #fff;
-    color: #000;
-    padding: 0.7rem 2rem;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-  }
+.submit-btn {
+  background: #007bff; /* Couleur du bouton en bleu */
+  color: #fff;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
 
-  .submit-btn:hover {
-    background: #333;
-    color: #fff;
-  }
+.submit-btn:hover {
+  background: #0056b3; /* Fond du bouton au survol */
+  color: #fff;
+}

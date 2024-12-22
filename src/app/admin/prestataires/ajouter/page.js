@@ -13,7 +13,7 @@ export default function AjouterPrestataire() {
     motDePasse: '',
     confirmMotDePasse: '',
     categorieService: '',
-    image: null,
+    images: [], // Pour gérer plusieurs images
   });
 
   const villes = ['Casablanca', 'Marrakech', 'Rabat', 'Fès', 'Tanger'];
@@ -30,7 +30,7 @@ export default function AjouterPrestataire() {
     const { name, value, type, files } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'file' ? files[0] : value,
+      [name]: type === 'file' ? [...files] : value, // Mettre à jour l'état avec un tableau d'images
     });
   };
 
@@ -38,6 +38,8 @@ export default function AjouterPrestataire() {
     e.preventDefault();
     console.log('Prestataire ajouté :', formData);
     alert('Bien enregistré !');
+
+    // Si vous voulez réinitialiser l'état après soumission :
     setFormData({
       nom: '',
       prenom: '',
@@ -48,7 +50,7 @@ export default function AjouterPrestataire() {
       motDePasse: '',
       confirmMotDePasse: '',
       categorieService: '',
-      image: null,
+      images: [], // Réinitialiser les images après soumission
     });
   };
 
@@ -56,24 +58,23 @@ export default function AjouterPrestataire() {
     <div className="form-container">
       <h1>Ajouter un Prestataire</h1>
       <form onSubmit={handleSubmit} className="form-style">
-        {[
-          { label: 'Nom', name: 'nom', type: 'text' },
+        {[{ label: 'Nom', name: 'nom', type: 'text' },
           { label: 'Prénom', name: 'prenom', type: 'text' },
           { label: 'Téléphone', name: 'telephone', type: 'tel', pattern: '[0-9]{10}' },
           { label: 'CIN', name: 'cin', type: 'text' },
           { label: 'Email', name: 'email', type: 'email' },
           { label: 'Mot de passe', name: 'motDePasse', type: 'password' },
-          { label: 'Confirmer mot de passe', name: 'confirmMotDePasse', type: 'password' },
+          { label: 'Confirmer mot de passe', name: 'confirmMotDePasse', type: 'password' }
         ].map((field) => (
           <div key={field.name} className="form-group">
             <label>{field.label} :</label>
             <input
               type={field.type}
               name={field.name}
-              value={formData[field.name]}
-              onChange={handleChange}
+              value={formData[field.name]}  // Lier la valeur de chaque champ à l'état
+              onChange={handleChange}  // Mettre à jour l'état lors de la saisie
               required
-              {...(field.pattern && { pattern: field.pattern })}
+              {...(field.pattern && { pattern: field.pattern })}  // Ajouter le pattern pour le téléphone
             />
           </div>
         ))}
@@ -113,12 +114,13 @@ export default function AjouterPrestataire() {
         </div>
 
         <div className="form-group">
-          <label>Image :</label>
+          <label>Images :</label>
           <input
             type="file"
-            name="image"
+            name="images"
             accept="image/*"
             onChange={handleChange}
+            multiple // Permet de télécharger plusieurs images
             required
           />
         </div>
