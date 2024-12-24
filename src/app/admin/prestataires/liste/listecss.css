@@ -1,4 +1,4 @@
-.titre-liste { 
+.titre-liste {
     text-align: center; /* Centre le texte horizontalement */
     margin-top: 40px;    /* Espace au-dessus du titre */
     font-size: 32px;     /* Augmentation de la taille du texte */
@@ -116,4 +116,44 @@
   max-width: 90%;
   max-height: 90%;
   margin: 0 auto;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre horizontalement */
+    margin: 20px auto; /* Centrage et espacement */
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Limite la largeur du conteneur */
+    max-width: 600px; /* Largeur maximale */
+    min-width: 300px; /* Largeur minimale */
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 15px;
+    margin-right: 8px;
+    transition: box-shadow 0.3s ease;
+    max-width: 80%; /* Limite la largeur de l'input */
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px; /* Ajustez la taille */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }

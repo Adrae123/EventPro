@@ -30,7 +30,7 @@ const Sidebar = () => {
             {/* Gestion des Prestataires */}
             <li>
               <h4 style={sectionTitleStyle} onClick={() => setShowPrestataires(!showPrestataires)}>
-                Gestion des Prestataires
+                Gestion-Prestataires
               </h4>
               {showPrestataires && (
                 <ul style={subListStyle}>

@@ -2,7 +2,7 @@ export const metadata = {
     title: 'Admin Panel',
     description: 'Interface d’administration pour gérer les services',
   };
-
+  import Navbar from '../../components/navbar';
   import Sidebar from '../../components/sidebar';
 
 

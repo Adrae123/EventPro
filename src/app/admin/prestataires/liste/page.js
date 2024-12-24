@@ -1,10 +1,10 @@
-'use client';  // Directive Next.js pour activer le rendu côté client.
-import { useState } from 'react';  // Importation du hook useState pour gérer l'état.
-import './listecss.css';  // Importation de la feuille de style
+'use client'; // Directive Next.js pour activer le rendu côté client.
+import { useState } from 'react';
+import './listecss.css';
 
 export default function ListePrestataires() {
-  // Déclaration de l'état initial avec une liste de prestataires fictifs.
   const [prestataires, setPrestataires] = useState([
+    // Liste initiale des prestataires
     {
       id: 1,
       nom: 'Prestataire 1',
@@ -15,7 +15,7 @@ export default function ListePrestataires() {
       email: 'prestataire1@example.com',
       motDePasse: 'password1',
       categorieService: 'Anniversaire',
-      image: 'image1.jpg',  // Image de présentation du prestataire.
+      image: 'image1.jpg',
     },
     {
       id: 2,
@@ -27,48 +27,101 @@ export default function ListePrestataires() {
       email: 'prestataire2@example.com',
       motDePasse: 'password2',
       categorieService: 'Mariage',
-      image: 'image2.jpg',  // Image de présentation du prestataire.
+      image: 'image2.jpg',
     },
   ]);
 
-  // État pour gérer la liste des images visibles dans la modale
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
-  // Fonction pour ouvrir la modale et afficher les images
-  const openImageModal = () => {
-    const images = prestataires.map((prestataire) => prestataire.image); // Récupérer toutes les images
-    setSelectedImages(images);
-    setIsModalOpen(true);
+  const filteredPrestataires = prestataires.filter((prestataire) =>
+    [prestataire.nom, prestataire.prenom, prestataire.cin]
+      .some((field) => field.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+
+  const totalPages = Math.ceil(filteredPrestataires.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = filteredPrestataires.slice(startIndex, endIndex);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
   };
 
-  // Fonction pour fermer la modale
-  const closeImageModal = () => {
-    setIsModalOpen(false);
-  };
-
-  // Fonction pour supprimer un prestataire de la liste.
-  const handleDelete = (id) => {
-    console.log('Suppression de l\'ID:', id);  // Debugging
-    const updatedPrestataires = prestataires.filter((p) => p.id !== id);
-    setPrestataires(updatedPrestataires);
-    alert('Prestataire supprimé!');
-  };
-  
-  // Fonction pour modifier un prestataire.
-  const handleEdit = (id) => {
-    console.log('Modification de l\'ID:', id);  // Debugging
-    const prestataire = prestataires.find((p) => p.id === id);
-    alert(`Modifier le prestataire : ${prestataire.nom} ${prestataire.prenom}`);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
   return (
     <div>
       <h1 className="titre-liste">Liste des Prestataires</h1>
-      
-      {/* Conteneur pour le défilement horizontal */}
+
+      {/* Barre de recherche améliorée */}
+      <div className="search-container" style={{ position: 'relative', marginBottom: '20px' }}>
+        <input
+          type="text"
+          placeholder="Rechercher par nom, prénom ou CIN"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+          style={{
+            padding: '10px 40px 10px 20px',
+            width: '100%',
+            borderRadius: '25px',
+            border: '1px solid #ccc',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          }}
+        />
+        <span
+          style={{
+            position: 'absolute',
+            top: '50%',
+            right: '15px',
+            transform: 'translateY(-50%)',
+            cursor: 'pointer',
+            color: '#888',
+          }}
+        >
+          🔍
+        </span>
+        {searchTerm && filteredPrestataires.length > 0 && (
+          <div
+            className="suggestions"
+            style={{
+              position: 'absolute',
+              top: '50px',
+              left: '0',
+              right: '0',
+              backgroundColor: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '5px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              maxHeight: '150px',
+              overflowY: 'auto',
+              zIndex: 10,
+            }}
+          >
+            {filteredPrestataires.slice(0, 5).map((prestataire) => (
+              <div
+                key={prestataire.id}
+                style={{
+                  padding: '10px',
+                  cursor: 'pointer',
+                  borderBottom: '1px solid #eee',
+                }}
+                onClick={() => setSearchTerm(prestataire.nom)}
+              >
+                {prestataire.nom} {prestataire.prenom}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Table des prestataires */}
       <div className="prestataires-table-wrapper">
-        {/* Table des prestataires */}
         <table className="prestataires-table">
           <thead>
             <tr>
@@ -81,11 +134,11 @@ export default function ListePrestataires() {
               <th>Mot de Passe</th>
               <th>Catégorie de Service</th>
               <th>Image</th>
-              <th>Actions</th> {/* Ajout de la colonne pour les boutons Modifier/Supprimer */}
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {prestataires.map((prestataire) => (
+            {currentItems.map((prestataire) => (
               <tr key={prestataire.id}>
                 <td>{prestataire.nom}</td>
                 <td>{prestataire.prenom}</td>
@@ -99,21 +152,18 @@ export default function ListePrestataires() {
                   <img
                     src={prestataire.image}
                     alt={`${prestataire.nom} ${prestataire.prenom}`}
-                    style={{ width: '80px', height: '80px', cursor: 'pointer' }}  // Image avec une taille plus petite pour ne pas encombrer la table.
-                    onClick={openImageModal}  // Action sur clic pour ouvrir la modale des images
+                    style={{ width: '80px', height: '80px', cursor: 'pointer' }}
                   />
                 </td>
                 <td>
-                  {/* Application des classes pour les boutons */}
-                  <button 
-                    onClick={() => handleEdit(prestataire.id)} 
+                  <button
+                    onClick={() => alert(`Modifier : ${prestataire.nom}`)}
                     className="btn-modifier"
-                    style={{ marginRight: '5px' }}
                   >
                     Modifier
                   </button>
-                  <button 
-                    onClick={() => handleDelete(prestataire.id)} 
+                  <button
+                    onClick={() => alert(`Supprimer : ${prestataire.nom}`)}
                     className="btn-supprimer"
                   >
                     Supprimer
@@ -125,23 +175,18 @@ export default function ListePrestataires() {
         </table>
       </div>
 
-      {/* Modale d'affichage des images */}
-      {isModalOpen && (
-        <div className="image-modal" onClick={closeImageModal}>
-          <div className="image-modal-content">
-            <div className="image-gallery">
-              {selectedImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Image ${index + 1}`}
-                  style={{ width: '200px', height: 'auto', margin: '10px', cursor: 'pointer' }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Pagination */}
+      <div className="pagination">
+        {[...Array(totalPages)].map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={currentPage === index + 1 ? 'active' : ''}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
