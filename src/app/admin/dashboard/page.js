@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import Header from '@components/header';
 
 export default function Dashboard() {
   const [selectedServiceCategory, setSelectedServiceCategory] = useState('');

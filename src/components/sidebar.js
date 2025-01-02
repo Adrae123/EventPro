@@ -7,6 +7,7 @@ const Sidebar = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [showMessagerie, setShowMessagerie] = useState(false);
   const [showPrestataires, setShowPrestataires] = useState(false);
+  const [showService, setShowService] = useState(false);  // Etat pour gérer la visibilité de la section Service
 
   const handleLinkClick = () => setIsSidebarVisible(false);
 
@@ -30,7 +31,7 @@ const Sidebar = () => {
             {/* Gestion des Prestataires */}
             <li>
               <h4 style={sectionTitleStyle} onClick={() => setShowPrestataires(!showPrestataires)}>
-                Gestion-Prestataires
+                Gestion-Prestataire
               </h4>
               {showPrestataires && (
                 <ul style={subListStyle}>
@@ -46,6 +47,35 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/admin/prestataires/liste"
+                      style={subLinkStyle}
+                      onClick={handleLinkClick}
+                    >
+                      Liste
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            {/* Gestion du Service */}
+            <li>
+              <h4 style={sectionTitleStyle} onClick={() => setShowService(!showService)}>
+                Gestion-Service
+              </h4>
+              {showService && (
+                <ul style={subListStyle}>
+                  <li>
+                    <Link
+                      href="/admin/service/ajouter"
+                      style={subLinkStyle}
+                      onClick={handleLinkClick}
+                    >
+                      Ajouter
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/admin/service/listes"
                       style={subLinkStyle}
                       onClick={handleLinkClick}
                     >

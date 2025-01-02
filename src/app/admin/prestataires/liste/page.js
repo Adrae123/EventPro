@@ -157,13 +157,13 @@ export default function ListePrestataires() {
                 </td>
                 <td>
                   <button
-                    onClick={() => alert(`Modifier : ${prestataire.nom}`)}
+                    onClick={() => alert(`Modifier : ${prestataire.id}`)}
                     className="btn-modifier"
                   >
                     Modifier
                   </button>
                   <button
-                    onClick={() => alert(`Supprimer : ${prestataire.nom}`)}
+                    onClick={() => alert(`Supprimer : ${prestataire.id}`)}
                     className="btn-supprimer"
                   >
                     Supprimer
@@ -175,18 +175,27 @@ export default function ListePrestataires() {
         </table>
       </div>
 
-      {/* Pagination */}
+     
       <div className="pagination">
-        {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePageChange(index + 1)}
-            className={currentPage === index + 1 ? 'active' : ''}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+  {/* Bouton Précédent */}
+  <button
+    onClick={() => handlePageChange(currentPage - 1)}
+    disabled={currentPage === 1}
+    className="prev-button"
+  >
+    Précédent
+  </button>
+
+  {/* Bouton Suivant */}
+  <button
+    onClick={() => handlePageChange(currentPage + 1)}
+    disabled={currentPage === totalPages}
+    className="next-button"
+  >
+    Suivant
+  </button>
+</div>
+
     </div>
   );
 }

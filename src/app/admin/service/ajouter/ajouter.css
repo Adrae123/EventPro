@@ -1,0 +1,80 @@
+/* Conteneur principal */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Titre principal */
+.container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 35px;
+  font-weight: 700;
+  color: #4a90e2;
+}
+
+/* Champs de formulaire */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea,
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color:rgb(249, 249, 249);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+  outline: none;
+}
+
+/* Textearea */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Bouton de soumission */
+
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Ajouter un texte d’aide */
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #888;
+}
