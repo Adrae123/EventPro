@@ -1,0 +1,171 @@
+{
+    "regions": [
+      {
+        "region": "Rabat-Salé-Kénitra",
+        "villes": [
+          {
+            "ville": "Rabat",
+            "communes": [
+              {"commune": "Agdal"},
+              {"commune": "Rabat Centre"},
+              {"commune": "Sidi Belyout"}
+            ]
+          },
+          {
+            "ville": "Salé",
+            "communes": [
+              {"commune": "Salé Al-Jadida"},
+              {"commune": "Bab Lamrissa"},
+              {"commune": "Hay Salam"}
+            ]
+          },
+          {
+            "ville": "Kénitra",
+            "communes": [
+              {"commune": "Kénitra Centre"},
+              {"commune": "Mimosas"},
+              {"commune": "Souika"}
+            ]
+          }
+        ]
+      },
+      {
+        "region": "Casablanca-Settat",
+        "villes": [
+          {
+            "ville": "Casablanca",
+            "communes": [
+              {"commune": "Maarif"},
+              {"commune": "Ain Chock"},
+              {"commune": "Mohammadia"}
+            ]
+          },
+          {
+            "ville": "Settat",
+            "communes": [
+              {"commune": "Settat Centre"},
+              {"commune": "Sidi El Aidi"},
+              {"commune": "Benslimane"}
+            ]
+          },
+          {
+            "ville": "Mohammédia",
+            "communes": [
+              {"commune": "Mohammédia Centre"},
+              {"commune": "Bourgogne"},
+              {"commune": "Hay Moulay Rachid"}
+            ]
+          }
+        ]
+      },
+      {
+        "region": "Marrakech-Safi",
+        "villes": [
+          {
+            "ville": "Marrakech",
+            "communes": [
+              {"commune": "Medina"},
+              {"commune": "Gueliz"},
+              {"commune": "Guéliz Riad"}
+            ]
+          },
+          {
+            "ville": "Safi",
+            "communes": [
+              {"commune": "Safi Centre"},
+              {"commune": "Hassan"},
+              {"commune": "Al Fath"}
+            ]
+          },
+          {
+            "ville": "Essaouira",
+            "communes": [
+              {"commune": "Essaouira Centre"},
+              {"commune": "Diabat"},
+              {"commune": "El Jorf"}
+            ]
+          }
+        ]
+      },
+      {
+        "region": "Fès-Meknès",
+        "villes": [
+          {
+            "ville": "Fès",
+            "communes": [
+              {"commune": "Fès El Bali"},
+              {"commune": "Fès El Jdid"},
+              {"commune": "Meknès"}
+            ]
+          },
+          {
+            "ville": "Meknès",
+            "communes": [
+              {"commune": "Meknès Centre"},
+              {"commune": "Moulay Idriss"},
+              {"commune": "El Massira"}
+            ]
+          },
+          {
+            "ville": "Ifrane",
+            "communes": [
+              {"commune": "Ifrane Centre"},
+              {"commune": "Dayet Aoua"},
+              {"commune": "Michlifen"}
+            ]
+          }
+        ]
+      },
+      {
+        "region": "Tanger-Tétouan-Al Hoceïma",
+        "villes": [
+          {
+            "ville": "Tanger",
+            "communes": [
+              {"commune": "Tanger Centre"},
+              {"commune": "Achakkar"},
+              {"commune": "Malabata"}
+            ]
+          },
+          {
+            "ville": "Tétouan",
+            "communes": [
+              {"commune": "Tétouan Centre"},
+              {"commune": "Mhannech"},
+              {"commune": "Bouhlal"}
+            ]
+          },
+          {
+            "ville": "Al Hoceïma",
+            "communes": [
+              {"commune": "Al Hoceïma Centre"},
+              {"commune": "Boudinar"},
+              {"commune": "Ajdir"}
+            ]
+          }
+        ]
+      },
+      {
+        "region": "Souss-Massa",
+        "villes": [
+          {
+            "ville": "Agadir",
+            "communes": [
+              {"commune": "Agadir Centre"},
+              {"commune": "Anza"},
+              {"commune": "Inezgane"}
+            ]
+          },
+          {
+            "ville": "Tiznit",
+            "communes": [
+              {"commune": "Tiznit Centre"},
+              {"commune": "Sidi Ali"},
+              {"commune": "Ait Baha"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

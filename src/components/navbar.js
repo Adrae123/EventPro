@@ -1,6 +1,6 @@
 'use client'; // Nécessaire si vous utilisez Next.js pour un composant côté client
 import React from 'react';
-import NotificationDropdown from '../components/NotificationDropdown'; // Assurez-vous que ce chemin est correct
+//import NotificationDropdown from '../components/NotificationDropdown'; // Assurez-vous que ce chemin est correct
 import './navbarcss.css'; // Vérifiez que le fichier CSS est disponible et chargé
 
 const Navbar = () => {
